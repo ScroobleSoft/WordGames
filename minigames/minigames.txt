@@ -1,0 +1,5 @@
+
+//--CRACKLE--//
+ * just in case, will keep a record of words used per game session to avoid repeats
+//-SHUFFLE--//
+ * just in case, will keep a record of combos used per game session to avoid repeats - words can repeat, however
