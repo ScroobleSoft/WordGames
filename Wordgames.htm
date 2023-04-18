@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <canvas id="PrimeCanvas" width="600" height="600"></canvas>
+      <div id="CanvasDiv" style="position:absolute; top:8px; left:612px; z-index:2">
+         <canvas id="ZoomCanvas" width="240" height="240"></canvas>
+      </div>
+      <div id="ConsoleDiv" style="position:absolute; top:252px; left:612px; z-index:2">
+         <canvas id="ConsoleCanvas" width="240" height="320"></canvas>
+      </div>
+   </head>
+
+   <button type="button" id="StartButton" onclick="EventHandler(0)">Start</button>
+   <button type="button" id="LoadButton"  onclick="EventHandler(1)">Load</button>
+   <button type="button" id="SaveButton"  onclick="EventHandler(2)">Save</button>
+   <button type="button" id="TestButton"  onclick="EventHandler(3)">Test</button>
+
+   <body onload="RunLittleHouse()">
+
+      <script src="modules\GenieData.js"></script>
+      <script src="library\GenieTypes.js"></script>
+      <script src="library\GenieArray.js"></script>
+      <script src="library\GenieList.js"></script>
+      <script src="library\AgentArray.js"></script>
+
+      <script src="modules\GenieUtils.js"></script>
+      <script src="library\GenieUtils.js"></script>
+      <script src="library\utils\GeoUtils.js"></script>
+      <script src="library\utils\SpaceUtils.js"></script>
+      <script src="library\utils\ArrayUtils.js"></script>
+
+      <script src="library\GenieRandom.js"></script>
+      <script src="library\GenieBuffer.js"></script>
+
+      <script src="library\MobileObject.js"></script>
+      <script src="modules\GenieAgent.js"></script>
+      <script src="modules\GenieIO.js"></script>
+      <script src="modules\GenieCalcPad.js"></script>
+
+      <script src="library\GenieGraphics.js"></script>
+
+      <script src="modules\GenieText.js"></script>
+      <script src="modules\GenieMedia.js"></script>
+
+      <script src="library\GenieImage.js"></script>
+      <script src="library\ImageMap.js"></script>
+
+      <script src="modules\GenieControls.js"></script>
+      <script src="modules\controls\GenieButtons.js"></script>
+      <script src="library\GenieControl.js"></script>
+      <script src="library\controls\GenieButton.js"></script>
+      <script src="library\controls\TextButton.js"></script>
+      <script src="library\controls\ImageButton.js"></script>
+      <script src="library\controls\PushButton.js"></script>
+      <script src="modules\controls\GenieRadio.js"></script>
+
+      <script src="modules\GenieSprite.js"></script>
+      <script src="modules\GenieSprites.js"></script>
+      <script src="modules\GenieScape.js"></script>
+
+      <script src="data.js"></script>
+
+      <script src="library\data\words\Words5a.js"></script>
+      <script src="library\data\words\Words5b.js"></script>
+      <script src="library\data\words\Words5c.js"></script>
+      <script src="library\data\words\Words5d.js"></script>
+      <script src="library\data\words\Words5e.js"></script>
+      <script src="library\data\words\Words5f.js"></script>
+      <script src="library\data\words\Words5g.js"></script>
+      <script src="library\data\words\Words5h.js"></script>
+      <script src="library\data\words\Words5i.js"></script>
+      <script src="library\data\words\Words5j.js"></script>
+      <script src="library\data\words\Words5k.js"></script>
+      <script src="library\data\words\Words5l.js"></script>
+      <script src="library\data\words\Words5m.js"></script>
+      <script src="library\data\words\Words5n.js"></script>
+      <script src="library\data\words\Words5o.js"></script>
+      <script src="library\data\words\Words5p.js"></script>
+      <script src="library\data\words\Words5q.js"></script>
+      <script src="library\data\words\Words5r.js"></script>
+      <script src="library\data\words\Words5s.js"></script>
+      <script src="library\data\words\Words5t.js"></script>
+      <script src="library\data\words\Words5u.js"></script>
+      <script src="library\data\words\Words5v.js"></script>
+      <script src="library\data\words\Words5w.js"></script>
+      <script src="library\data\words\Words5y.js"></script>
+      <script src="library\data\words\Words5z.js"></script>
+
+      <script src="library\data\words\Words6a.js"></script>
+      <script src="library\data\words\Words6b.js"></script>
+      <script src="library\data\words\Words6c.js"></script>
+      <script src="library\data\words\Words6d.js"></script>
+      <script src="library\data\words\Words6e.js"></script>
+      <script src="library\data\words\Words6f.js"></script>
+      <script src="library\data\words\Words6g.js"></script>
+      <script src="library\data\words\Words6h.js"></script>
+      <script src="library\data\words\Words6i.js"></script>
+      <script src="library\data\words\Words6j.js"></script>
+      <script src="library\data\words\Words6k.js"></script>
+      <script src="library\data\words\Words6l.js"></script>
+      <script src="library\data\words\Words6m.js"></script>
+      <script src="library\data\words\Words6n.js"></script>
+      <script src="library\data\words\Words6o.js"></script>
+      <script src="library\data\words\Words6p.js"></script>
+      <script src="library\data\words\Words6q.js"></script>
+      <script src="library\data\words\Words6r.js"></script>
+      <script src="library\data\words\Words6s.js"></script>
+      <script src="library\data\words\Words6t.js"></script>
+      <script src="library\data\words\Words6u.js"></script>
+      <script src="library\data\words\Words6v.js"></script>
+      <script src="library\data\words\Words6w.js"></script>
+      <script src="library\data\words\Words6y.js"></script>
+      <script src="library\data\words\Words6z.js"></script>
+
+      <script src="library\data\words\Words7a.js"></script>
+      <script src="library\data\words\Words7b.js"></script>
+      <script src="library\data\words\Words7c.js"></script>
+      <script src="library\data\words\Words7d.js"></script>
+      <script src="library\data\words\Words7e.js"></script>
+      <script src="library\data\words\Words7f.js"></script>
+      <script src="library\data\words\Words7g.js"></script>
+      <script src="library\data\words\Words7h.js"></script>
+      <script src="library\data\words\Words7i.js"></script>
+      <script src="library\data\words\Words7j.js"></script>
+      <script src="library\data\words\Words7k.js"></script>
+      <script src="library\data\words\Words7l.js"></script>
+      <script src="library\data\words\Words7m.js"></script>
+      <script src="library\data\words\Words7n.js"></script>
+      <script src="library\data\words\Words7o.js"></script>
+      <script src="library\data\words\Words7p.js"></script>
+      <script src="library\data\words\Words7q.js"></script>
+      <script src="library\data\words\Words7r.js"></script>
+      <script src="library\data\words\Words7s.js"></script>
+      <script src="library\data\words\Words7t.js"></script>
+      <script src="library\data\words\Words7u.js"></script>
+      <script src="library\data\words\Words7v.js"></script>
+      <script src="library\data\words\Words7w.js"></script>
+      <script src="library\data\words\Words7y.js"></script>
+      <script src="library\data\words\Words7z.js"></script>
+
+      <script src="components.js"></script>
+
+      <script src="demo.js"></script>
+
+      <script src="minigames.js"></script>
+      <script src="minigames\data.js"></script>
+      <script src="minigames\shuffle.js"></script>
+      <script src="minigames\shuffle\words.js"></script>
+      <script src="minigames\shuffle\board.js"></script>
+      <script src="minigames\shuffle\tile.js"></script>
+      <script src="minigames\shuffle\info.js"></script>
+      <script src="minigames\jumble.js"></script>
+      <script src="minigames\jumble\grid.js"></script>
+      <script src="minigames\jumble\selector.js"></script>
+      <script src="minigames\scramble.js"></script>
+      <script src="minigames\crackle.js"></script>
+      <script src="minigames\crackle\ledger.js"></script>
+      <script src="minigames\crackle\submission.js"></script>
+      <script src="minigames\crackle\keys.js"></script>
+
+      <script src="intro.js"></script>
+
+      <script src="testing.js"></script>
+      <script src="testing\controls.js"></script>
+
+      <script src="engine.js"></script>
+
+      <script>
+
+	 //Main game object
+	 var Game;
+
+         function RunLittleHouse() {
+
+	    //Create library components
+	    SkeletonScape = new GenieScape();
+	    SkeletonCalcPad = new GenieCalcPad();
+	    SkeletonGraphics = new GenieGraphics();
+	    SkeletonText = new GenieText();
+	    SkeletonRandomizer = new GenieRandomizer();
+
+	    //Set library components
+	    SkeletonScape.Set("PrimeCanvas", "ZoomCanvas", SkeletonControls, "ConsoleCanvas");
+	    SkeletonCalcPad.Set();
+	    SkeletonGraphics.Set(SkeletonScape.PrimeScape.Context, SkeletonScape.ZoomScape.Context, SkeletonScape.Console);
+	    SkeletonText.Set(SkeletonScape.PrimeScape.Context, null, SkeletonScape.ZoomScape.Context, SkeletonScape.Console);
+	    SkeletonScape.PrimeScape.Context.font = DEFAULT.FONT;
+	    SkeletonScape.PrimeScape.DisableRightClickMenu();
+	    SkeletonScape.AddController(GAMePAD.ARROWS);
+	    Controller = SkeletonScape.ControllerA;
+	    SkeletonRandomizer.Set();
+
+	    //Load and assign graphic images
+	    ImageManager.Set(SkeletonImages);
+	    ImageManager.LoadImages();
+	    ImageManager.Check();				//Check if images have loaded
+
+	    //Begin as soon as images have loaded
+	    Game = new SkeletonEngine();
+	    Game.Set(SkeletonScape, SkeletonGraphics, SkeletonCalcPad, SkeletonText, SkeletonRandomizer, Controller);
+	    Game.CheckImagesLoaded();
+
+	    document.getElementById("StartButton").disabled = true;
+	    document.getElementById("LoadButton").disabled = true;
+	    document.getElementById("SaveButton").disabled = true;
+	    document.getElementById("TestButton").disabled = true;
+	 }
+
+	 function EventHandler(EventNumber) {
+	    cancelAnimationFrame(Intro.AnimationFrameHandle);
+	    switch (EventNumber) {
+	       case EVENT.STARtBUTTOnCLICKED:
+		  Game.Play();
+		  break;
+	       case EVENT.LOAdBUTTOnCLICKED:
+	          break;
+	       case EVENT.SAVeBUTTOnCLICKED:
+	          break;
+	       case EVENT.TEStBUTTOnCLICKED:
+		  Testing.Start();
+	          break;
+	       }
+	 };
+
+      </script>
+   </body>
+</html>
